@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="https://openlayers.org/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Map</title>
+    <link rel="stylesheet" href="http://localhost:5500/style">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  </head>
+  <body>
+    <main class="main">
+      <aside class="main__aside">
+        <h4 class="main__aside-title">Додати нову мітку</h4>
+        <form class="form" method="post" id="form">
+          <label class="form__label" for="name">
+            Назва<span class="form__required">*</span>
+          </label>
+          <input 
+            class="form__input" 
+            id="name" 
+            type="text" 
+            placeholder="Ex.: London" 
+            required
+          >
+          <label class="form__label" for="longitude">
+            Довгота<span class="form__required">*</span>
+          </label>
+          <input 
+            class="form__input" 
+            id="longitude" 
+            type="text"
+            placeholder="Ex.: 30"
+            required
+            >
+          <label class="form__label" for="latitude">
+            Довжина<span class="form__required">*</span>
+          </label>
+          <input 
+            class="form__input"  
+            type="text"
+            id="latitude" 
+            placeholder="Ex.: 40.34" 
+            required
+          >
+          <label class="form__label" for="description">
+            Опис<span class="form__required">*</span>
+          </label>
+          <textarea 
+            class="form_description" 
+            id="description" 
+            rows="10" 
+            placeholder="Ex.: London is the capital of Great Britain" 
+            required
+            maxlength="300"
+          ></textarea>
+          <button type="submit" class="form__button">Додати</button>
+        </form>
+        <div class="error"></div>
+      </aside>
+      <div id="map"></div>
+    </main>
+    <script src="http://localhost:5500/script"></script>
+  </body>
+</html>

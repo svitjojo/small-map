@@ -1,0 +1,112 @@
+body,
+html,
+.main {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.main {
+  display: flex;
+}
+
+.main__aside {
+  padding: 10px 5px;
+  background-color: rgb(131, 190, 236);
+  flex-basis: 300px;
+}
+
+.main__aside-title {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #045cd6;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__input {
+  font-family: Verdana,
+    Geneva,
+    Tahoma,
+    sans-serif;
+  border: none;
+  border-radius: 4px;
+  padding: 4px;
+  margin-bottom: 10px;
+}
+
+.form__input:focus, .form_description:focus, .form__button:focus {
+  outline: 1px solid #045cd6;
+}
+
+.form__label {
+  font-family: Verdana,
+    Geneva,
+    Tahoma,
+    sans-serif;
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: #045cd6;
+}
+
+.form_description {
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 4px;
+  padding: 4px;
+
+  resize: none;
+}
+
+.form__button {
+  border: none;
+  font-family: Verdana,
+    Geneva,
+    Tahoma,
+    sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 10px 5px;
+  cursor: pointer;
+  color: #045cd6;
+}
+
+.form__required {
+  color: red;
+}
+
+#map {
+  height: 100%;
+  width: 100%;
+}
+
+.error {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 14px;
+  background-color: red;
+  border-radius: 4px;
+  color: #fff;
+  margin-top: 5px;
+  padding: 5px;
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .main {
+    flex-direction: column-reverse;
+    overflow: scroll;
+  }
+
+  .main__aside {
+    flex-shrink: 1;
+  }
+
+  #map {
+    flex-basis: 521px;
+  }
+}
