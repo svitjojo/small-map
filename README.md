@@ -10,6 +10,12 @@ To start a project follow those steps:
  ```
  npm install
  ```
+ - create .env file inside api directory with given variables
+ ```
+  DATABASE='The name of the database'
+  USER_NAME='The username which is used to authenticate against the database'
+  PASSWORD='The password which is used to authenticate against the database'
+ ```
  - start a server
  ```
  npm start
