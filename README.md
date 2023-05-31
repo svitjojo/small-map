@@ -16,6 +16,10 @@ To start a project follow those steps:
   USER_NAME='The username which is used to authenticate against the database'
   PASSWORD='The password which is used to authenticate against the database'
  ```
+ - create and setup DB
+```
+ npm run setup
+```
  - start a server
  ```
  npm start
