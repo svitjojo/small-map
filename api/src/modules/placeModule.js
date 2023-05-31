@@ -1,5 +1,5 @@
 import { DataTypes } from "sequelize";
-import { sequelize } from "../utils/db.js";
+import { sequelize } from "../utils/initDB.js";
 
 export const Place = sequelize.define('Place', {
   id: {

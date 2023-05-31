@@ -112,23 +112,30 @@ const getPlaces = async () => {
     const data = await response.json();
 
     return data;
-  } catch (error) {
-
+  } catch {
+    const errorMessage = 'Something went wrong, please try to reload the page';
+    setErrorMessage(errorMessage, 'add');
   }
 };
 
 const addPlace = async (newPlace) => {
-  const data = await fetch('http://localhost:3000/', {
-    method: 'POST',
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(newPlace),
-  })
+  try {
+    const data = await fetch('http://localhost:3000/', {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newPlace),
+    })
 
-  const place = await data.json();
+    const place = await data.json();
 
-  addMarker(place);
+    addMarker(place);
+  } catch {
+    const errorMessage = 'Something went wrong, please try again';
+    setErrorMessage(errorMessage, 'add');
+  }
+
 };
 
 (async () => {
@@ -136,8 +143,9 @@ const addPlace = async (newPlace) => {
     const places = await getPlaces();
 
     places.forEach(item => addMarker(item));
-  } catch (error) {
-    console.log(error);
+  } catch {
+    const errorMessage = 'Something went wrong, please try to reload the page';
+    setErrorMessage(errorMessage, 'add');
   }
 })();
 
@@ -176,19 +184,33 @@ placeForm.addEventListener('submit', (event) => {
 });
 
 // utils
+function setErrorMessage(errorMessage, action) {
+  const error = document.querySelector('.error');
+
+  if (action === 'remove') {
+    errorMessage.style = "display:none";
+    return;
+  }
+
+  if (action === 'add') {
+    error.innerHTML = errorMessage;
+    error.style = "display:block";
+    return;
+  }
+};
+
 function formValidator(formData) {
   const { name, longitude, latitude, description } = formData;
   const isLongitudeInRange = latitude <= 180 && latitude >= -180;
   const isLatitudeInRange = longitude <= 90 && longitude >= -90;
-  const errorMessage = document.querySelector('.error');
+  const errorMessage = 'Будь ласка перевірте, широта або довгота має тільки цифри та вказано у даному форматі "40.23"';
 
   if (name && description && isLatitudeInRange && isLongitudeInRange) {
-    errorMessage.style = "display:none";
+    setErrorMessage('', 'remove');
     return true;
   }
 
-  errorMessage.innerHTML = 'Будь ласка перевірте, широта або довгота має тільки цифри та вказано у даному форматі "40.23"';
-  errorMessage.style = "display:block";
+  setErrorMessage(errorMessage, 'add');
 
   return false;
 };

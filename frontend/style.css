@@ -38,7 +38,9 @@ html,
   margin-bottom: 10px;
 }
 
-.form__input:focus, .form_description:focus, .form__button:focus {
+.form__input:focus,
+.form_description:focus,
+.form__button:focus {
   outline: 1px solid #045cd6;
 }
 
